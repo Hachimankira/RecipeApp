@@ -24,7 +24,7 @@ export const SavedRecipes = () => {
   return (
     <div>
       <h1>Saved Recipes</h1>
-      {/* <ul>
+      <ul>
         {savedRecipes.map((recipe) => (
           <li key={recipe._id}>
             <div>
@@ -35,8 +35,8 @@ export const SavedRecipes = () => {
             <p>Cooking Time: {recipe.cookingTime} minutes</p>
           </li>
         ))}
-      </ul> */}
-      <RecipeReviewCard />
+      </ul>
+      {/* <RecipeReviewCard /> */}
     </div>
   );
 };

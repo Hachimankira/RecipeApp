@@ -77,6 +77,10 @@ export const Home = () => {
                         title= {recipe.name}
                         cookingTime={recipe.cookingTime}
                         imageUrl={recipe.imageUrl}
+                        isRecipeSaved={isRecipeSaved}
+                        recipe={recipe}
+                        saveRecipe={saveRecipe}
+                        description= {recipe.description}
                         />
                 )
                 )}
