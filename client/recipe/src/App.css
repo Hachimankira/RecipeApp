@@ -181,3 +181,20 @@ p {
   max-width: 400px;
   font-size: 12px;
 }
+
+/*css for card*/
+.recipe-card {
+  display: flex;
+  border: 1px solid #ccc;
+  margin: 10px;
+}
+
+.card-content {
+  flex: 1;
+  padding: 10px;
+}
+
+.card-image img {
+  width: 100%;
+  height: auto;
+}

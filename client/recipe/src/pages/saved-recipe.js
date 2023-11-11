@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useGetUserID } from "../hooks/useGetUserID";
 import axios from "axios";
+import RecipeReviewCard from "../components/recipeCard";
 
 export const SavedRecipes = () => {
   const [savedRecipes, setSavedRecipes] = useState([]);
@@ -23,7 +24,7 @@ export const SavedRecipes = () => {
   return (
     <div>
       <h1>Saved Recipes</h1>
-      <ul>
+      {/* <ul>
         {savedRecipes.map((recipe) => (
           <li key={recipe._id}>
             <div>
@@ -34,7 +35,8 @@ export const SavedRecipes = () => {
             <p>Cooking Time: {recipe.cookingTime} minutes</p>
           </li>
         ))}
-      </ul>
+      </ul> */}
+      <RecipeReviewCard />
     </div>
   );
 };

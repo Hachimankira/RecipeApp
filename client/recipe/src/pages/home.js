@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useGetUserID } from "../hooks/useGetUserID";
 import { useCookies } from "react-cookie";
+import RecipeReviewCard from "../components/recipeCard";
 
 export const Home = () => {
     const userID = useGetUserID();
@@ -31,8 +32,8 @@ export const Home = () => {
         };
 
         fetchRecipe();
-        if (cookies.access_token) 
-        fetchSavedRecipes();
+        if (cookies.access_token)
+            fetchSavedRecipes();
     }, []);
 
     const saveRecipe = async (recipeID) => {
@@ -55,26 +56,32 @@ export const Home = () => {
             <h1>Recipe</h1>
             <ul>
                 {recipe.map((recipe) => (
-                    <li key={recipe.id}>
-                        <div>
-                            <h2>{recipe.name}</h2>
-                            <button
-                                onClick={() => saveRecipe(recipe._id)}
-                                disabled={isRecipeSaved(recipe._id)}
-                            > 
-                            {isRecipeSaved(recipe._id) ? "Saved" : "Save"} 
-                                {/* save */}
-                            </button>
-                        </div>
-                        <div className="instructions">
-                            <p>{recipe.instruction}</p>
-                        </div>
-                        <img src={recipe.imageUrl} alt={recipe.name} />
-                        <p> Cooking Time: {recipe.cookingTime} (minutes)</p>
-                    </li>
+                    // <li key={recipe.id}>
+                    //     <div>
+                    //         <h2>{recipe.name}</h2>
+                    //         <button
+                    //             onClick={() => saveRecipe(recipe._id)}
+                    //             disabled={isRecipeSaved(recipe._id)}
+                    //         >
+                    //             {isRecipeSaved(recipe._id) ? "Saved" : "Save"}
+                    //             {/* save */}
+                    //         </button>
+                    //     </div>
+                    //     <div className="instructions">
+                    //         <p>{recipe.instruction}</p>
+                    //     </div>
+                    //     <img src={recipe.imageUrl} alt={recipe.name} />
+                    //     <p> Cooking Time: {recipe.cookingTime} (minutes)</p>
+                    // </li>
+                    <RecipeReviewCard 
+                        title= {recipe.name}
+                        cookingTime={recipe.cookingTime}
+                        imageUrl={recipe.imageUrl}
+                        />
                 )
                 )}
             </ul>
+
         </div>
     )
 }
