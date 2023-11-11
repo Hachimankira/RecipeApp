@@ -81,7 +81,7 @@ a {
   font-size: 25px;
 }
 
-.create-recipe {
+/* .create-recipe {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -96,7 +96,61 @@ a {
 .create-recipe form {
   display: flex;
   flex-direction: column;
+} */
+
+/* Add general styling to improve form appearance */
+.create-recipe {
+  width: 400px;
+  max-width: 500px;
+  margin: 20px auto 0; /* Added margin-top */
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+input,
+textarea,
+button {
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #4caf50;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 8px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
 ul {
   list-style: none;
   padding: 0;
