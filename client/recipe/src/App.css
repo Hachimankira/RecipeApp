@@ -84,6 +84,12 @@ input {
 }
 
 
+.navbar a.active {
+  font-weight: bold;
+  color: #ff9900;
+}
+
+
 
 a {
   color: white;
