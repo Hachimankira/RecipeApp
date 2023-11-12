@@ -53,7 +53,6 @@ export const Home = () => {
 
     return (
         <div>
-            <h1>Recipe</h1>
             <ul>
                 {recipe.map((recipe) => (
                     // <li key={recipe.id}>
@@ -81,11 +80,12 @@ export const Home = () => {
                         recipe={recipe}
                         saveRecipe={saveRecipe}
                         description= {recipe.description}
+                        instruction= {recipe.instruction}
+                        ingredients= {recipe.ingredient}
                         />
                 )
                 )}
             </ul>
-
         </div>
     )
 }

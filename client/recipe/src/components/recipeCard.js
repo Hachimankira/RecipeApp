@@ -33,7 +33,16 @@ const ExpandMore = styled((props) => {
 
 
 
-export default function RecipeReviewCard({ title, cookingTime, imageUrl,isRecipeSaved, recipe, saveRecipe,description }) {
+export default function RecipeReviewCard({
+    title,
+    cookingTime,
+    imageUrl,
+    isRecipeSaved,
+    recipe,
+    saveRecipe,
+    description,
+    instruction,
+    ingredients, }) {
     const [expanded, setExpanded] = React.useState(false);
 
     const handleExpandClick = () => {
@@ -41,8 +50,9 @@ export default function RecipeReviewCard({ title, cookingTime, imageUrl,isRecipe
     };
 
 
+
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ maxWidth: 500, marginBottom: "1rem", bgcolor: "#f7f7f7" , boxShadow: "0 4px 8px rgba(0, 0, 0.5, 0.5)"}}>
             <CardHeader
                 avatar={
                     <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -59,7 +69,7 @@ export default function RecipeReviewCard({ title, cookingTime, imageUrl,isRecipe
             />
             <CardMedia
                 component="img"
-                height="194"
+                height="200"
                 image={imageUrl}
                 alt="Paella dish"
             />
@@ -75,8 +85,8 @@ export default function RecipeReviewCard({ title, cookingTime, imageUrl,isRecipe
                 <IconButton
                     aria-label="add to favorites"
                     onClick={() => saveRecipe(recipe._id)} // Adjust as needed based on your data structure
+                    color={isRecipeSaved(recipe._id) ? 'info' : 'default'}
                     disabled={isRecipeSaved(recipe._id)}
-                    color={isRecipeSaved(recipe._id) ? 'success' : 'default'}
                 >
                     <FavoriteIcon />
                 </IconButton>
@@ -96,9 +106,16 @@ export default function RecipeReviewCard({ title, cookingTime, imageUrl,isRecipe
                 <CardContent>
                     <Typography paragraph>Instructions:</Typography>
                     <Typography paragraph>
-                        Heat 1/2 cup of the broth in a pot until simmering, add saffron and set
-                        aside for 10 minutes.
+                        {instruction}
+                        Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
+                        medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
+                        occasionally until lightly browned, 6 to 8 minutes.
                     </Typography>
+
+                    {/* <Typography paragraph>Ingredient:</Typography>
+                        <Typography paragraph>
+                            {ingredients}
+                        </Typography> */}
                     {/* <Typography paragraph>
             Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
             medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
