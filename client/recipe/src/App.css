@@ -62,7 +62,7 @@ input {
   margin-bottom: 1rem;
 }
 .navbar {
-  gap: 10px;  /* Adjust as needed */
+  gap: 4rem;  /* Adjust as needed */
   margin: 0%;
   background-color: #333;
   color: white;
