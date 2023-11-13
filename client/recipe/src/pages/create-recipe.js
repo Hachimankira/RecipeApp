@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useGetUserID } from "../hooks/useGetUserID";
 import { useCookies } from "react-cookie";
+import Button from '@mui/material/Button';
 
 
 export const CreateRecipe = () => {
@@ -92,9 +93,9 @@ export const CreateRecipe = () => {
                         onChange={(event) => handleingredientsChange(event, index)}
                     />
                 ))}
-                <button className="createRecipe-btn" type="button" onClick={handleAddingredients}>
+                <Button variant="outlined" className="createRecipe-btn" type="button" onClick={handleAddingredients}>
                     Add Ingredient
-                </button>
+                </Button>
             </div>
 
             <div className="form-group">
@@ -129,7 +130,7 @@ export const CreateRecipe = () => {
                 />
             </div>
 
-            <button className="createRecipe-btn" type="submit">Create Recipe</button>
+            <Button variant="contained" className="createRecipe-btn" type="submit">Create Recipe</Button>
         </form>
     </div>
 </div>

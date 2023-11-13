@@ -18,6 +18,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useGetUserID } from "../hooks/useGetUserID";
 import { useCookies } from "react-cookie";
+import { Button } from '@mui/material';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -52,7 +53,7 @@ export default function RecipeReviewCard({
 
 
     return (
-        <Card sx={{ maxWidth: 600, marginBottom: "1rem", bgcolor: "#f7f7f7" , boxShadow: "0 4px 8px rgba(0, 0, 0.5, 0.5)"}}>
+        <Card sx={{ maxWidth: 600, marginBottom: "1rem", bgcolor: "#f7f7f7", boxShadow: "0 4px 8px rgba(0, 0, 0.5, 0.5)" }}>
             <CardHeader
                 avatar={
                     <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -82,14 +83,13 @@ export default function RecipeReviewCard({
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
-                <IconButton
-                    aria-label="add to favorites"
-                    onClick={() => saveRecipe(recipe._id)} // Adjust as needed based on your data structure
-                    color={isRecipeSaved(recipe._id) ? 'info' : 'default'}
+                <Button
+                    variant='contained'
+                    onClick={() => saveRecipe(recipe._id)}
                     disabled={isRecipeSaved(recipe._id)}
                 >
-                    <FavoriteIcon />
-                </IconButton>
+                    {isRecipeSaved(recipe._id) ? "Saved" : "Save"}
+                </Button>
                 {/* <IconButton aria-label="share">
           <ShareIcon />
         </IconButton> */}
