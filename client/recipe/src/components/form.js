@@ -30,10 +30,7 @@ const Form = ({ username, setUsername, password, setPassword, label, onSubmit })
                 <form onSubmit={onSubmit}>
                     {isLoginForm ? (
                         <>
-                            <h2>Welcome to Recipe App</h2>
-                            <Typography variant="subtitle2" gutterBottom sx={{ paddingBottom: "4px" }}>
-                                Please sign-in to your account and start creating
-                            </Typography>
+                            <h2>Sign in to your account</h2>
                         </>
                     ) : (
                         <>

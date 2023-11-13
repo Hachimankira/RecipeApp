@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useGetUserID } from "../hooks/useGetUserID";
 import { useCookies } from "react-cookie";
 import Button from '@mui/material/Button';
+import { TextField } from "@mui/material";
 
 
 export const CreateRecipe = () => {
@@ -56,84 +57,130 @@ export const CreateRecipe = () => {
 
     return (
         <div>
-    <div className="create-recipe">
-        <h2>Create a Recipe</h2>
-        <form onSubmit={handleSubmit}>
+            <div className="create-recipe">
+                <h2>Create a Recipe</h2>
+                <form onSubmit={handleSubmit}>
 
-            <div className="form-group">
-                <label htmlFor="name">Name</label>
+                    <div className="form-group">
+                        {/* <label htmlFor="name">Name</label>
                 <input
                     type="text"
                     id="name"
                     name="name"
                     value={recipe.name}
                     onChange={handleChange}
-                />
+                /> */}
+                        <TextField
+                            id="name"
+                            name="name"
+                            label="Name"
+                            variant="outlined"
+                            type="text"
+                            value={recipe.name}
+                            onChange={handleChange}
+                        />
+                    </div>
+
+                    {/* Uncomment if you want to include a description */}
+                    <div className="form-group">
+                        {/* <label htmlFor="description">Description</label>
+                        <textarea
+                            id="description"
+                            name="description"
+                            value={recipe.description}
+                            onChange={handleChange}
+                        ></textarea> */}
+                        <TextField
+                            id="description"
+                            name="description"
+                            label="Description"
+                            variant="outlined"
+                            multiline
+                            type="text"
+                            value={recipe.description}
+                            onChange={handleChange}
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="ingredients">Ingredients</label>
+                        {recipe.ingredients.map((ingredient, index) => (
+                            <input
+                                key={index}
+                                type="text"
+                                name="ingredients"
+                                value={ingredient}
+                                onChange={(event) => handleingredientsChange(event, index)}
+                            />
+                        ))}
+                        <Button variant="outlined" className="createRecipe-btn" type="button" onClick={handleAddingredients}>
+                            Add Ingredient
+                        </Button>
+                    </div>
+
+                    <div className="form-group">
+                        {/* <label htmlFor="instructions">Instructions</label>
+                        <textarea
+                            id="instructions"
+                            name="instructions"
+                            value={recipe.instructions}
+                            onChange={handleChange}
+                        ></textarea> */}
+                        <TextField
+                            id="instructions"
+                            name="instructions"
+                            label="Instructions"
+                            variant="outlined"
+                            type="text"
+                            value={recipe.instructions}
+                            onChange={handleChange}
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        {/* <label htmlFor="imageUrl">Image URL</label>
+                        <input
+                            type="text"
+                            id="imageUrl"
+                            name="imageUrl"
+                            value={recipe.imageUrl}
+                            onChange={handleChange}
+                        /> */}
+                        <TextField
+                            id="imageUrl"
+                            name="imageUrl"
+                            label="ImageUrl"
+                            variant="outlined"
+                            type="text"
+                            value={recipe.imageUrl}
+                            onChange={handleChange}
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        {/* <label htmlFor="cookingTime">Cooking Time (minutes)</label>
+                        <input
+                            type="number"
+                            id="cookingTime"
+                            name="cookingTime"
+                            value={recipe.cookingTime}
+                            onChange={handleChange}
+                        /> */}
+                        <TextField
+                            id="cookingTime"
+                            name="cookingTime"
+                            label="Cooking Time(min)"
+                            variant="outlined"
+                            type="text"
+                            value={recipe.cookingTime}
+                            onChange={handleChange}
+                        />
+                    </div>
+
+                    <Button variant="contained" className="createRecipe-btn" type="submit">Create Recipe</Button>
+                </form>
             </div>
+        </div>
 
-            {/* Uncomment if you want to include a description */}
-            <div className="form-group">
-                <label htmlFor="description">Description</label>
-                <textarea
-                    id="description"
-                    name="description"
-                    value={recipe.description}
-                    onChange={handleChange}
-                ></textarea>
-            </div>
-
-            <div className="form-group">
-                <label htmlFor="ingredients">Ingredients</label>
-                {recipe.ingredients.map((ingredient, index) => (
-                    <input
-                        key={index}
-                        type="text"
-                        name="ingredients"
-                        value={ingredient}
-                        onChange={(event) => handleingredientsChange(event, index)}
-                    />
-                ))}
-                <Button variant="outlined" className="createRecipe-btn" type="button" onClick={handleAddingredients}>
-                    Add Ingredient
-                </Button>
-            </div>
-
-            <div className="form-group">
-                <label htmlFor="instructions">Instructions</label>
-                <textarea
-                    id="instructions"
-                    name="instructions"
-                    value={recipe.instructions}
-                    onChange={handleChange}
-                ></textarea>
-            </div>
-
-            <div className="form-group">
-                <label htmlFor="imageUrl">Image URL</label>
-                <input
-                    type="text"
-                    id="imageUrl"
-                    name="imageUrl"
-                    value={recipe.imageUrl}
-                    onChange={handleChange}
-                />
-            </div>
-
-            <div className="form-group">
-                <label htmlFor="cookingTime">Cooking Time (minutes)</label>
-                <input
-                    type="number"
-                    id="cookingTime"
-                    name="cookingTime"
-                    value={recipe.cookingTime}
-                    onChange={handleChange}
-                />
-            </div>
-
-            <Button variant="contained" className="createRecipe-btn" type="submit">Create Recipe</Button>
-        </form>
-    </div>
-</div>
-
-        );
+    );
 };

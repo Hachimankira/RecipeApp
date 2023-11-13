@@ -20,6 +20,12 @@ export const Navbar = () => {
         setCookies("access_token", "");
         window.localStorage.removeItem("userID");
         navigate("/login")
+        setAnchorEl(null);
+    }
+
+    const viewProfile = () => {
+        navigate("/profile");
+        setAnchorEl(null);
     }
 
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -35,6 +41,7 @@ export const Navbar = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+    const open = Boolean(anchorEl);
 
     return (
         <div className="navbar-container">
@@ -61,25 +68,21 @@ export const Navbar = () => {
                             >
                                 <AccountCircle />
                             </IconButton> */}
-                                <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe" onClick={handleMenu}>
-                                    KS
-                                </Avatar>
+                            <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe" onClick={handleMenu}>
+                                KS
+                            </Avatar>
                             <Menu
-                                id="menu-appbar"
+                                id="basic-menu"
                                 anchorEl={anchorEl}
-                                anchorOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                keepMounted
-                                transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                open={Boolean(anchorEl)}
+                                open={open}
                                 onClose={handleClose}
+                                MenuListProps={{
+                                    'aria-labelledby': 'basic-button',
+                                }}
                             >
-                                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                                <MenuItem onClick={viewProfile}>
+                                    Profile
+                                </MenuItem>
                                 <MenuItem onClick={logout}>
                                     Logout <LogoutIcon sx={{ fontSize: 20, paddingLeft: "1rem" }} />
                                 </MenuItem>
