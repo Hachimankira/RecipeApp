@@ -8,6 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import { red } from '@mui/material/colors';
 import Avatar from '@mui/material/Avatar';
+import PersonIcon from '@mui/icons-material/Person';
 
 
 
@@ -68,9 +69,15 @@ export const Navbar = () => {
                             >
                                 <AccountCircle />
                             </IconButton> */}
-                            <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe" onClick={handleMenu}>
+                            {/* <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe" onClick={handleMenu}>
                                 KS
-                            </Avatar>
+                            </Avatar> */}
+                            <img
+                                className="inline-block h-12 w-12 rounded-full ring-2 ring-gray"
+                                src="/images/profile.jpg"
+                                alt="profile"
+                                onClick={handleMenu}
+                            />
                             <Menu
                                 id="basic-menu"
                                 anchorEl={anchorEl}
@@ -81,10 +88,10 @@ export const Navbar = () => {
                                 }}
                             >
                                 <MenuItem onClick={viewProfile}>
-                                    Profile
+                                    <PersonIcon sx={{ fontSize: 40, paddingRight: "1rem" }} />  Profile
                                 </MenuItem>
                                 <MenuItem onClick={logout}>
-                                    Logout <LogoutIcon sx={{ fontSize: 20, paddingLeft: "1rem" }} />
+                                    <LogoutIcon sx={{ fontSize: 40, paddingRight: "1rem" }} /> Logout
                                 </MenuItem>
                             </Menu>
                         </div>
