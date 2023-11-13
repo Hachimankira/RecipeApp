@@ -56,7 +56,7 @@ export const CreateRecipe = () => {
     return (
         <div>
     <div className="create-recipe">
-        <h2>Create Recipe</h2>
+        <h2>Create a Recipe</h2>
         <form onSubmit={handleSubmit}>
 
             <div className="form-group">

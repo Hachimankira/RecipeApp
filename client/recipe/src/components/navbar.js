@@ -26,7 +26,7 @@ export const Navbar = () => {
     const logout = () => {
         setCookies("access_token", "");
         window.localStorage.removeItem("userID");
-        navigate("/auth")
+        navigate("/login")
     }
 
     const [anchorEl, setAnchorEl] = React.useState(null);
