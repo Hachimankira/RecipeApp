@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import Form from "../components/form";
 
-export  const Register = () => {
+export const Register = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -19,14 +19,15 @@ export  const Register = () => {
         }
     }
     return (
-        <Form
-            username={username}
-            setUsername={setUsername}
-            password={password}
-            setPassword={setPassword}
-            label="Register"
-            onSubmit={onSubmit}
-        />
-
+        <div style={{ width: "900px", marginTop: "3rem" }}>
+            <Form
+                username={username}
+                setUsername={setUsername}
+                password={password}
+                setPassword={setPassword}
+                label="Register"
+                onSubmit={onSubmit}
+            />
+        </div>
     )
 }

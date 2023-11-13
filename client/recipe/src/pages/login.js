@@ -29,7 +29,7 @@ export const Login = () => {
     }
 
     return (
-        <div>
+        <div style={{ width: "900px", marginTop: "3rem"}}>
             <Form
                 username={username}
                 setUsername={setUsername}

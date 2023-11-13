@@ -25,12 +25,11 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 15px;
   background-color: white;
   border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  margin: 20px;
-  width: 400px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  /* margin: 20px; */
 }
 
 .form-group {
@@ -59,7 +58,7 @@ input {
   background-color: #fff; /* Change this to your desired background color */
   z-index: 100; /* Adjust the z-index as needed */
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 .navbar {
   gap: 4rem;  /* Adjust as needed */

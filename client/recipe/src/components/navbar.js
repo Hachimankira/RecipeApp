@@ -3,14 +3,7 @@ import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
-import { Button } from "@mui/material";
 import LogoutIcon from '@mui/icons-material/Logout';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import Switch from '@mui/material/Switch';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormGroup from '@mui/material/FormGroup';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import { red } from '@mui/material/colors';
@@ -49,7 +42,7 @@ export const Navbar = () => {
                 <NavLink to="/" activeClassName="active">Home</NavLink>
                 <NavLink to="/create-recipe" activeClassName="active">Create</NavLink>
                 {!cookies.access_token ? (
-                    <NavLink to="/auth" activeClassName="active">Login</NavLink>
+                    <NavLink to="/login" activeClassName="active">Login</NavLink>
                 ) : (
                     <>
                         <NavLink to="/saved-recipe" activeClassName="active">Saved</NavLink>
