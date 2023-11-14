@@ -40,6 +40,13 @@ body {
   margin-bottom: 20px;
 }
 
+.form-name{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
 label {
   font-weight: bold;
   margin-bottom: 5px;

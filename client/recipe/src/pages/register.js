@@ -6,6 +6,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
+    const [firstname, setFirstname] = useState("");
+    const [lastname, setLastname] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
@@ -14,6 +16,8 @@ export const Register = () => {
         event.preventDefault();
         try {
             await axios.post("http://localhost:3001/auth/register", {
+                firstname,
+                lastname,
                 username,
                 password,
             });
@@ -26,6 +30,10 @@ export const Register = () => {
     return (
         <div style={{ width: "900px", marginTop: "3rem" }}>
             <Form
+                firstname={firstname}
+                setFirstname={setFirstname}
+                lastname={lastname}
+                setLastname={setLastname}
                 username={username}
                 setUsername={setUsername}
                 password={password}

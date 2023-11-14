@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
     const [_, setCookies] = useCookies(["access_token"]);
-
+    // const [firstname, setFirstname] = useState("");
+    // const [lastname, setLastname] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -29,8 +30,12 @@ export const Login = () => {
     }
 
     return (
-        <div style={{ width: "900px", marginTop: "3rem"}}>
+        <div style={{ width: "900px", marginTop: "3rem" }}>
             <Form
+                // firstname={firstname}
+                // setFirstname={setFirstname}
+                // lastname={lastname}
+                // setLastname={setLastname}
                 username={username}
                 setUsername={setUsername}
                 password={password}
@@ -38,7 +43,7 @@ export const Login = () => {
                 label="Login"
                 onSubmit={onSubmit}
             />
-            
+
         </div>
     )
 }

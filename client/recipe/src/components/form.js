@@ -3,7 +3,13 @@ import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import { CardMedia, Grid, TextField, Typography } from '@mui/material';
 
-const Form = ({ username, setUsername, password, setPassword, label, onSubmit }) => {
+const Form = ({ 
+    firstname, setFirstname, 
+    lastname, setLastname, 
+    username, setUsername, 
+    password, setPassword, 
+    label, 
+    onSubmit }) => {
     const isLoginForm = label.toLowerCase() === 'login';
 
     return (
@@ -38,6 +44,28 @@ const Form = ({ username, setUsername, password, setPassword, label, onSubmit })
                     {isLoginForm ? (
                         <>
                             <h2>Sign in to your account</h2>
+                            <div className="form-group">
+                                <TextField
+                                    id="outlined-basic"
+                                    label="Username"
+                                    variant="outlined"
+                                    type="text"
+                                    // id="username"
+                                    value={username}
+                                    onChange={(event) => setUsername(event.target.value)}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <TextField
+                                    id="outlined-basic"
+                                    label="Password"
+                                    variant="outlined"
+                                    type="password"
+                                    // id="password"
+                                    value={password}
+                                    onChange={(event) => setPassword(event.target.value)}
+                                />
+                            </div>
                         </>
                     ) : (
                         <>
@@ -45,47 +73,54 @@ const Form = ({ username, setUsername, password, setPassword, label, onSubmit })
                             <Typography variant="subtitle2" gutterBottom sx={{ textAlign: "center", paddingBottom: "4px" }}>
                                 Please create an account and start creating
                             </Typography>
+                            <div className="form-name">
+                                <TextField
+                                    id="outlined-basic"
+                                    label="Firstname"
+                                    variant="outlined"
+                                    type="text"
+                                    // id="firstname"
+                                    value={firstname}
+                                    onChange={(event) => setFirstname(event.target.value)}
+                                    sx={{ paddingRight: "1rem"}}
+                                />
+                            {/* </div>
+                            <div className="form-group"> */}
+                                <TextField
+                                    id="outlined-basic"
+                                    label="Lastname"
+                                    variant="outlined"
+                                    type="text"
+                                    // id="lastname"
+                                    value={lastname}
+                                    onChange={(event) => setLastname(event.target.value)}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <TextField
+                                    id="outlined-basic"
+                                    label="Username"
+                                    variant="outlined"
+                                    type="text"
+                                    // id="username"
+                                    value={username}
+                                    onChange={(event) => setUsername(event.target.value)}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <TextField
+                                    id="outlined-basic"
+                                    label="Password"
+                                    variant="outlined"
+                                    type="password"
+                                    // id="password"
+                                    value={password}
+                                    onChange={(event) => setPassword(event.target.value)}
+                                />
+                            </div>
                         </>
                     )}
 
-
-                    {/* <h2>{label}</h2> */}
-                    <div className="form-group">
-                        <TextField
-                            id="outlined-basic"
-                            label="Username"
-                            variant="outlined"
-                            type="text"
-                            // id="username"
-                            value={username}
-                            onChange={(event) => setUsername(event.target.value)}
-                        />
-                        {/* <label htmlFor="username">Username:</label>
-                        <input
-                            type="text"
-                            id="username"
-                            value={username}
-                            onChange={(event) => setUsername(event.target.value)}
-                        /> */}
-                    </div>
-                    <div className="form-group">
-                        <TextField
-                            id="outlined-basic"
-                            label="Password"
-                            variant="outlined"
-                            type="password"
-                            // id="password"
-                            value={password}
-                            onChange={(event) => setPassword(event.target.value)}
-                        />
-                        {/* <label htmlFor="password">Password:</label>
-                        <input
-                            type="password"
-                            id="password"
-                            value={password}
-                            onChange={(event) => setPassword(event.target.value)}
-                        /> */}
-                    </div>
                     <Button variant="contained" size="medium" type="submit">
                         {label}
                     </Button>

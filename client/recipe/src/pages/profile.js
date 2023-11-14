@@ -48,7 +48,7 @@ export const Profile = () => {
                     alt="profile"
                 />
                 <Typography variant="h5" gutterBottom>
-                    {user.name}
+                    {user.firstname}  {user.lastname}
                 </Typography>
                 <Typography variant="subtitle1" color="textSecondary" gutterBottom>
                     @{user.username}
