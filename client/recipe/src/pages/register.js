@@ -1,10 +1,14 @@
 import axios from "axios";
 import { useState } from "react";
 import Form from "../components/form";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
     const onSubmit = async (event) => {
         event.preventDefault();
@@ -13,7 +17,8 @@ export const Register = () => {
                 username,
                 password,
             });
-            alert("Registration Completed! Now login.");
+            toast.success("Registration Completed! Now login.");
+            navigate('/login');
         } catch (error) {
             console.error(error);
         }

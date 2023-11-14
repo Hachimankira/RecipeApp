@@ -5,6 +5,8 @@ import { useGetUserID } from "../hooks/useGetUserID";
 import { useCookies } from "react-cookie";
 import Button from '@mui/material/Button';
 import { TextField } from "@mui/material";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export const CreateRecipe = () => {
@@ -48,7 +50,7 @@ export const CreateRecipe = () => {
                 { ...recipe },
                 { headers: { authorization: cookies.access_token } }
             );
-            alert("Recipe Created!");
+            toast.success("Recipe Created!");
             navigate("/");
         } catch (error) {
             console.error(error);

@@ -7,6 +7,8 @@ import { Navbar } from './components/navbar';
 import { Register } from './pages/register';
 import { Login } from './pages/login';
 import { Profile } from './pages/profile';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -22,6 +24,10 @@ function App() {
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </Router>
+      <ToastContainer
+        position='bottom-left'
+        autoClose={2000}
+      />
     </div>
   );
 }

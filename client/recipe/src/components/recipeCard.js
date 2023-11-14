@@ -10,15 +10,11 @@ import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { useGetUserID } from "../hooks/useGetUserID";
 import { useCookies } from "react-cookie";
 import { Button } from '@mui/material';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const ExpandMore = styled((props) => {
@@ -90,7 +86,7 @@ export default function RecipeReviewCard({
                     onClick={() => {
                         saveRecipe(recipe._id);
                         if(!cookies.access_token)
-                            alert("Login to save this recipe!");
+                        toast.info("Login to save this recipe!");
                     }}
                     disabled={isRecipeSaved(recipe._id)}
                 >
