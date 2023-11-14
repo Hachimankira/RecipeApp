@@ -27,6 +27,13 @@ const Form = ({ username, setUsername, password, setPassword, label, onSubmit })
 
             </Grid>
             <Grid item xs={6}>
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <img
+                        className="inline-block h-36 w-36 mb-8 rounded-full"
+                        src="/images/logo.png"
+                        alt="profile"
+                    />
+                </div>
                 <form onSubmit={onSubmit}>
                     {isLoginForm ? (
                         <>
@@ -35,7 +42,7 @@ const Form = ({ username, setUsername, password, setPassword, label, onSubmit })
                     ) : (
                         <>
                             <h2>Welcome to Recipe App</h2>
-                            <Typography variant="subtitle2" gutterBottom sx={{ paddingBottom: "4px" }}>
+                            <Typography variant="subtitle2" gutterBottom sx={{ textAlign: "center", paddingBottom: "4px" }}>
                                 Please create an account and start creating
                             </Typography>
                         </>
