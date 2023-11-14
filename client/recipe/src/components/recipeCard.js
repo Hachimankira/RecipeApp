@@ -20,6 +20,7 @@ import { useGetUserID } from "../hooks/useGetUserID";
 import { useCookies } from "react-cookie";
 import { Button } from '@mui/material';
 
+
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
@@ -45,6 +46,7 @@ export default function RecipeReviewCard({
     instruction,
     ingredients, }) {
     const [expanded, setExpanded] = React.useState(false);
+    const [cookies, setCookies] = useCookies(["access_token"]);
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
@@ -85,7 +87,11 @@ export default function RecipeReviewCard({
             <CardActions disableSpacing>
                 <Button
                     variant='contained'
-                    onClick={() => saveRecipe(recipe._id)}
+                    onClick={() => {
+                        saveRecipe(recipe._id);
+                        if(!cookies.access_token)
+                            alert("Login to save this recipe!");
+                    }}
                     disabled={isRecipeSaved(recipe._id)}
                 >
                     {isRecipeSaved(recipe._id) ? "Saved" : "Save"}
