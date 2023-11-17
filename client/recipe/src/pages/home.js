@@ -3,6 +3,7 @@ import axios from "axios";
 import { useGetUserID } from "../hooks/useGetUserID";
 import { useCookies } from "react-cookie";
 import RecipeReviewCard from "../components/recipeCard";
+import { Grid } from "@mui/material";
 
 export const Home = () => {
     const userID = useGetUserID();
@@ -52,40 +53,23 @@ export const Home = () => {
     const isRecipeSaved = (id) => savedRecipes.includes(id);
 
     return (
-        <div>
-            <ul>
-                {recipe.map((recipe) => (
-                    // <li key={recipe.id}>
-                    //     <div>
-                    //         <h2>{recipe.name}</h2>
-                    //         <button
-                    //             onClick={() => saveRecipe(recipe._id)}
-                    //             disabled={isRecipeSaved(recipe._id)}
-                    //         >
-                    //             {isRecipeSaved(recipe._id) ? "Saved" : "Save"}
-                    //             {/* save */}
-                    //         </button>
-                    //     </div>
-                    //     <div className="instructions">
-                    //         <p>{recipe.instruction}</p>
-                    //     </div>
-                    //     <img src={recipe.imageUrl} alt={recipe.name} />
-                    //     <p> Cooking Time: {recipe.cookingTime} (minutes)</p>
-                    // </li>
-                    <RecipeReviewCard 
-                        title= {recipe.name}
+        <Grid container spacing={2} sx={{ padding: "24px"}}>
+            {recipe.map((recipe) => (
+                <Grid item xs={4} key={recipe.id}>
+                    <RecipeReviewCard
+                        title={recipe.name}
                         cookingTime={recipe.cookingTime}
                         imageUrl={recipe.imageUrl}
                         isRecipeSaved={isRecipeSaved}
                         recipe={recipe}
                         saveRecipe={saveRecipe}
-                        description= {recipe.description}
-                        instruction= {recipe.instruction}
-                        ingredients= {recipe.ingredient}
-                        />
-                )
-                )}
-            </ul>
-        </div>
+                        description={recipe.description}
+                        instruction={recipe.instruction}
+                        ingredients={recipe.ingredient}
+                    />
+                </Grid>
+            ))}
+        </Grid>
+
     )
 }
