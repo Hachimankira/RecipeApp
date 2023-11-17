@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useCookies } from "react-cookie";
@@ -6,8 +5,6 @@ import { useNavigate } from "react-router-dom";
 import LogoutIcon from '@mui/icons-material/Logout';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import { red } from '@mui/material/colors';
-import Avatar from '@mui/material/Avatar';
 import PersonIcon from '@mui/icons-material/Person';
 
 
@@ -58,20 +55,6 @@ export const Navbar = () => {
                             <LogoutIcon sx={{ fontSize: 20, color: "#fff" }} onClick={logout} />
                         </Button> */}
                         <div>
-                            {/* <IconButton
-                                sx={{ fontSize: 25 }}
-                                // size="large"
-                                aria-label="account of current user"
-                                aria-controls="menu-appbar"
-                                aria-haspopup="true"
-                                onClick={handleMenu}
-                                color="inherit"
-                            >
-                                <AccountCircle />
-                            </IconButton> */}
-                            {/* <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe" onClick={handleMenu}>
-                                KS
-                            </Avatar> */}
                             <img
                                 className="inline-block h-12 w-12 rounded-full ring-2 ring-gray"
                                 src="/images/profile.jpg"
