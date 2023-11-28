@@ -4,7 +4,9 @@ import { useGetUserID } from "../hooks/useGetUserID";
 import { useCookies } from "react-cookie";
 import RecipeReviewCard from "../components/recipeCard";
 import { Grid } from "@mui/material";
-import SearchBar from "../components/search";
+import Search from "../components/search";
+import SearchBar from "../components/searchBar";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
     const userID = useGetUserID();
@@ -55,24 +57,25 @@ export const Home = () => {
 
     return (
         <>
+            {/* <Search /> */}
             <SearchBar />
-            <Grid container spacing={2} sx={{ padding: "24px" }}>
-                {recipe.map((recipe) => (
-                    <Grid item xs={4} key={recipe.id}>
-                        <RecipeReviewCard
-                            title={recipe.name}
-                            cookingTime={recipe.cookingTime}
-                            imageUrl={recipe.imageUrl}
-                            isRecipeSaved={isRecipeSaved}
-                            recipe={recipe}
-                            saveRecipe={saveRecipe}
-                            description={recipe.description}
-                            instruction={recipe.instruction}
-                            ingredients={recipe.ingredient}
-                        />
-                    </Grid>
-                ))}
-            </Grid>
+                <Grid container spacing={2} sx={{ padding: "24px" }}>
+                    {recipe.map((recipe) => (
+                        <Grid item xs={4} key={recipe.id}>
+                            <RecipeReviewCard
+                                title={recipe.name}
+                                cookingTime={recipe.cookingTime}
+                                imageUrl={recipe.imageUrl}
+                                isRecipeSaved={isRecipeSaved}
+                                recipe={recipe}
+                                saveRecipe={saveRecipe}
+                                description={recipe.description}
+                                instruction={recipe.instruction}
+                                ingredients={recipe.ingredient}
+                            />
+                        </Grid>
+                    ))}
+                </Grid>
         </>
 
     )

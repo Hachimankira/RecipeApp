@@ -9,6 +9,7 @@ import { Login } from './pages/login';
 import { Profile } from './pages/profile';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { SingleRecipe } from './pages/singleRecipe';
 
 function App() {
   return (
@@ -22,10 +23,11 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/single-recipe" element={<SingleRecipe />} />
         </Routes>
       </Router>
       <ToastContainer
-        position='bottom-left'
+        position='top-right'
         autoClose={2000}
       />
     </div>

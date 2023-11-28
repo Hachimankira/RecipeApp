@@ -1,42 +1,48 @@
-.previous-searches{
+.previous-searches {
     display: block;
-    h2{
-        color: #0A0A0A;
-        margin-bottom: .5em;
-    }
-    .previous-searches-container{
-        .search-item{
-            background-color: black;
-            display: inline-block;
-            padding: .5em 1em;
-            margin: 0 1em 1em 0;
-            color: #fff;
-            border-radius: 30px;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-            transform: translateX(100%);
-            opacity: 0;
-            animation: getAnimationDuration(.5s) slideInRight forwards;
-        }
-    }
-    .search-box{
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        height: 35px;
-        input, .btn{
-            height: 35px;
-        }
-        input{
-            min-width: 250px;
-            padding: 0 .5em;
-            border-radius: 5px 0 0 5px;
-            outline: none;
-            border: 1px solid #4d4d4d;
-        }
-        .btn{
-            padding-block: 0;
-            padding-inline: .75em;
-            border-radius: 0 5px 5px 0;
-        }
-    }
-}
+  }
+  
+  .previous-searches h2 {
+    color: #0A0A0A;
+    margin-bottom: .5em;
+  }
+  
+  .previous-searches .previous-searches-container .search-item {
+    background-color: black;
+    display: inline-block;
+    padding: .5em 1em;
+    margin: 0 1em 1em 0;
+    color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%);
+    opacity: 0;
+    animation: getAnimationDuration(.5s) slideInRight forwards;
+  }
+  
+  .previous-searches .search-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+  }
+  
+  .previous-searches .search-box input,
+  .previous-searches .search-box .btn {
+    height: 35px;
+  }
+  
+  .previous-searches .search-box input {
+    min-width: 250px;
+    padding: 0 .5em;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    border: 1px solid #4d4d4d;
+  }
+  
+  .previous-searches .search-box .btn {
+    padding-block: 0;
+    padding-inline: .75em;
+    border-radius: 0 5px 5px 0;
+  }
+  

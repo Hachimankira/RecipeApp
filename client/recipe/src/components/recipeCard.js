@@ -15,6 +15,8 @@ import { useCookies } from "react-cookie";
 import { Button } from '@mui/material';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link, useNavigate } from 'react-router-dom';
+import { SingleRecipe } from '../pages/singleRecipe';
 
 
 const ExpandMore = styled((props) => {
@@ -47,78 +49,79 @@ export default function RecipeReviewCard({
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
-
-
+    const fixedHeight = 400;
 
     return (
-        <Card sx={{ maxWidth: 600, marginBottom: "1rem", bgcolor: "#f7f7f7", boxShadow: "0 4px 8px rgba(0, 0, 0.5, 0.5)" }}>
-            <CardHeader
-                avatar={
-                    <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                        R
-                    </Avatar>
-                }
-                // action={
-                //   <IconButton aria-label="settings">
-                //     <MoreVertIcon />
-                //   </IconButton>
-                // }
-                title={title}
-                subheader="September 14, 2016"
-            />
-            <CardMedia
-                component="img"
-                height="200"
-                image={imageUrl}
-                alt="Paella dish"
-            />
-            <CardContent>
-                <Typography variant="body2" color="text.secondary">
-                    {description}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                    Cooking Time(min): {cookingTime}
-                </Typography>
-            </CardContent>
-            <CardActions disableSpacing>
-                <Button
-                    variant='contained'
-                    onClick={() => {
-                        saveRecipe(recipe._id);
-                        if(!cookies.access_token)
-                        toast.info("Login to save this recipe!");
-                    }}
-                    disabled={isRecipeSaved(recipe._id)}
-                >
-                    {isRecipeSaved(recipe._id) ? "Saved" : "Save"}
-                </Button>
-                {/* <IconButton aria-label="share">
+        <Link to={"/single-recipe"}>
+            <Card sx={{ maxWidth: 600, marginBottom: "1rem", bgcolor: "#f7f7f7", boxShadow: "0 4px 8px rgba(0, 0, 0.5, 0.5)" }}>
+                <CardHeader
+                    avatar={
+                        <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+                            R
+                        </Avatar>
+                    }
+                    // action={
+                    //   <IconButton aria-label="settings">
+                    //     <MoreVertIcon />
+                    //   </IconButton>
+                    // }
+                    title={title}
+                    subheader="September 14, 2016"
+                />
+                <CardMedia
+                    component="img"
+                    // height= {fixedHeight}
+                    style={{ height: fixedHeight }}
+                    image={imageUrl}
+                    alt="Paella dish"
+                />
+                <CardContent>
+                    <Typography variant="body2" color="text.secondary">
+                        Cooking Time(min): {cookingTime}
+                    </Typography>
+                </CardContent>
+                <CardActions >
+                    <Button
+                        variant='contained'
+                        onClick={() => {
+                            saveRecipe(recipe._id);
+                            if (!cookies.access_token)
+                                toast.info("Login to save this recipe!");
+                        }}
+                        disabled={isRecipeSaved(recipe._id)}
+                    >
+                        {isRecipeSaved(recipe._id) ? "Saved" : "Save"}
+                    </Button>
+                    {/* <IconButton aria-label="share">
           <ShareIcon />
         </IconButton> */}
-                <ExpandMore
-                    expand={expanded}
-                    onClick={handleExpandClick}
-                    aria-expanded={expanded}
-                    aria-label="show more"
-                >
-                    <ExpandMoreIcon />
-                </ExpandMore>
-            </CardActions>
-            <Collapse in={expanded} timeout="auto" unmountOnExit>
-                <CardContent>
-                    <Typography paragraph>Instructions:</Typography>
-                    <Typography paragraph>
-                        {instruction}
-                        Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
+                    <ExpandMore
+                        expand={expanded}
+                        onClick={handleExpandClick}
+                        aria-expanded={expanded}
+                        aria-label="show more"
+                    >
+                        <ExpandMoreIcon />
+                    </ExpandMore>
+                </CardActions>
+                <Collapse in={expanded} timeout="auto" unmountOnExit>
+                    <CardContent>
+                        <Typography variant="body2" color="text.secondary">
+                            {description}
+                        </Typography>
+                        <Typography paragraph>Instructions:</Typography>
+                        <Typography paragraph>
+                            {instruction}
+                            {/* Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
                         medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
-                        occasionally until lightly browned, 6 to 8 minutes.
-                    </Typography>
+                        occasionally until lightly browned, 6 to 8 minutes. */}
+                        </Typography>
 
-                    {/* <Typography paragraph>Ingredient:</Typography>
+                        {/* <Typography paragraph>Ingredient:</Typography>
                         <Typography paragraph>
                             {ingredients}
                         </Typography> */}
-                    {/* <Typography paragraph>
+                        {/* <Typography paragraph>
             Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
             medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
             occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a
@@ -138,8 +141,9 @@ export default function RecipeReviewCard({
           <Typography>
             Set aside off of the heat to let rest for 10 minutes, and then serve.
           </Typography> */}
-                </CardContent>
-            </Collapse>
-        </Card>
+                    </CardContent>
+                </Collapse>
+            </Card>
+        </Link>
     );
 }
