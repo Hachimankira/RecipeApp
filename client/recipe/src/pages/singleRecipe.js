@@ -3,15 +3,11 @@ import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
-import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Box, Button } from '@mui/material';
+import { Button, Divider, Grid } from '@mui/material';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 
 export const SingleRecipe = () => {
     const fixedHeight = 600;
@@ -36,28 +32,37 @@ export const SingleRecipe = () => {
                         title="Jhol Momo"
                         subheader="Cooking Time: 1 hours"
                     />
+        
+                    <div>
+                        <Typography variant="body2" color="text.secondary">
+                            Momos are a type of steamed filled dumpling in Tibetan and Nepali cuisine that is also popular in neighbouring Bhutan and India. Momos are usually served with a sauce known as achar influenced by the spices and herbs used within many South Asian cuisines.
+                        </Typography>
+                    </div>
 
-                    <Typography variant="body2" color="text.secondary">
-                        description
-                    </Typography>
-                    <Box sx={{ display: "flex" }} >
-                        <CardContent>
+                    <Grid container spacing={2} >
+                        <Grid item xs={4}>
                             <Typography variant='h5'>Ingredient:</Typography>
                             <Typography paragraph>
                                 4 cups all-purpose flour
+                                <Divider />
                                 4 cups all-purpose flour
+                                <Divider />
                                 4 cups all-purpose flour
+                                <Divider />
                                 4 cups all-purpose flour
                             </Typography>
-                        </CardContent>
+                        </Grid>
 
-                        <CardContent>
+                        <Grid item xs={8}>
                             <Typography variant='h5'>Instructions:</Typography>
                             <Typography paragraph>
                                 Mix together the flour and 1 1/2 cups room temperature water in a bowl. Knead the dough well until it is medium-firm and flexible. Cover and let rest for 1 hour.
+                                <Divider />
+                                Mix together the flour and 1 1/2 cups room temperature water in a bowl. Knead the dough well until it is medium-firm and flexible. Cover and let rest for 1 hour.
+                                <Divider />
                             </Typography>
-                        </CardContent>
-                    </Box>
+                        </Grid>
+                    </Grid>
                 </CardContent>
             </Card>
         </div>

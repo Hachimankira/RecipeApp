@@ -37,7 +37,6 @@ export default function RecipeReviewCard({
     title,
     cookingTime,
     imageUrl,
-    isRecipeSaved,
     recipe,
     saveRecipe,
     description,
@@ -82,32 +81,6 @@ export default function RecipeReviewCard({
                     Cooking Time(min): {cookingTime}
                 </Typography>
             </CardContent>
-            <CardActions >
-                <Button
-                    variant='contained'
-                    onClick={() => {
-                        saveRecipe(recipe._id);
-                        if (!cookies.access_token)
-                            toast.info("Login to save this recipe!");
-                    }}
-                    disabled={isRecipeSaved(recipe._id)}
-                >
-                    {isRecipeSaved(recipe._id) === true ? "Saved" : "Save"}
-                </Button>
-                {/* <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton> */}
-                <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                    <ExpandMore
-                        expand={expanded}
-                        onClick={handleExpandClick}
-                        aria-expanded={expanded}
-                        aria-label="show more"
-                    >
-                        <ExpandMoreIcon />
-                    </ExpandMore>
-                </div>
-            </CardActions>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
                 <CardContent>
                     <Typography variant="body2" color="text.secondary">

@@ -63,6 +63,23 @@ router.get("/savedRecipes/:userID", async (req,res) => {
     }
 });
 
+//get recipe created by the user only
+router.get('/user/:userOwnerId', async (req, res) => {
+    const userOwnerId = req.params.userOwnerId;
+  
+    try {
+      const recipes = await RecipeModel.find({ userOwner: userOwnerId });
+  
+      if (!recipes) {
+        return res.status(404).json({ message: 'No recipes found for this userOwner.' });
+      }
+  
+      res.json(recipes);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Server Error' });
+    }
+  });
 
 
 export { router as recipesRouter};
