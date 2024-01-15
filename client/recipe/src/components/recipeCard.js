@@ -68,7 +68,7 @@ export default function RecipeReviewCard({
                 title={title}
                 subheader="September 14, 2016"
             />
-            <Link to={"/single-recipe"}>
+            <Link to={`/recipes/${recipe._id}`}>
                 <CardMedia
                     component="img"
                     // height= {fixedHeight}

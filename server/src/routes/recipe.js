@@ -63,7 +63,7 @@ router.get("/savedRecipes/:userID", async (req, res) => {
     }
 });
 
-//get recipe created by the user only
+//get recipe created by the user only and it's count
 router.get('/user/:userOwnerId', async (req, res) => {
     const userOwnerId = req.params.userOwnerId;
 
@@ -89,7 +89,44 @@ router.get('/user/:userOwnerId', async (req, res) => {
     }
 });
 
+//get a single recipe
+router.get('/:id', async (req, res) => {
+    const recipeId = req.params.id;
 
+    try {
+        const recipe = await RecipeModel.findById(recipeId);
+        
+        if (!recipe) {
+            return res.status(404).json({ message: 'Recipe not found.' });
+        }
 
+        res.json(recipe);
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server Error' });
+    }
+});
+
+// router.get('/:recipeId', async (req, res) => {
+//     const recipeId = req.params.recipeId;
+
+//     if (!mongoose.Types.ObjectId.isValid(recipeId)) {
+//         return res.status(400).json({ message: 'Invalid recipe ID.' });
+//     }
+
+//     try {
+//         const recipe = await RecipeModel.findById(recipeId);
+
+//         if (!recipe) {
+//             return res.status(404).json({ message: 'Recipe not found.' });
+//         }
+
+//         res.json(recipe);
+//     } catch (error) {
+//         console.error(error);
+//         res.status(500).json({ message: 'Server Error' });
+//     }
+// });
 
 export { router as recipesRouter };
