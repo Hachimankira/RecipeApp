@@ -33,7 +33,7 @@ const ExpandMore = styled((props) => {
 
 
 
-export default function RecipeReviewCard({
+export default function SimpleRecipeCard({
     title,
     cookingTime,
     imageUrl,
@@ -52,7 +52,7 @@ export default function RecipeReviewCard({
 
     return (
 
-        <Card sx={{ maxWidth: 600, marginBottom: "1rem", bgcolor: "#f7f7f7", boxShadow: "0 4px 8px rgba(0, 0, 0.5, 0.5)" }}>
+        <Card sx={{ width: 600, marginLeft: "50%", bgcolor: "#f7f7f7", boxShadow: "0 4px 8px rgba(0, 0, 0.5, 0.5)" }}>
             <CardHeader
                 avatar={
                     <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">

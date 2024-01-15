@@ -8,6 +8,7 @@ import SimpleRecipeCard from '../components/simpleRecipeCard';
 
 export const CreatedRecipe = () => {
   const [recipes, setRecipes] = useState([]);
+  const [recipeCount, setRecipeCount] = useState(0);
   const userOwnerId = useGetUserID(); // Replace with the actual userOwner ID
 
   const [loading, setLoading] = useState(true);
@@ -16,12 +17,21 @@ export const CreatedRecipe = () => {
     const fetchCreatedRecipes = async () => {
       try {
         const response = await axios.get(`http://localhost:3001/recipes/user/${userOwnerId}`);
-        setRecipes(response.data);
-      } catch (err) {
+        const { recipes, recipeCount } = response.data;
+
+        // Now you can use recipes and recipeCount as needed
+        console.log('Recipes:', recipes);
+        console.log('Recipe Count:', recipeCount);
+
+        // Update your state or perform any other necessary actions
+        setRecipes(recipes);
+        setRecipeCount(recipeCount);
+
+    } catch (err) {
         console.log(err);
-      } finally {
+    } finally {
         setLoading(false);
-      }
+    }
     };
 
     fetchCreatedRecipes();
@@ -32,9 +42,9 @@ export const CreatedRecipe = () => {
   }
 
   return (
-    <Grid container spacing={2} sx={{ padding: "24px" }}>
+    <Grid container direction="column" spacing={1} sx={{ padding: "2px" }}>
       {recipes.map((recipe) => (
-        <Grid item xs={4} key={recipe.id}>
+        <Grid item xs={12} key={recipe.id}>
           <SimpleRecipeCard
             title={recipe.name}
             cookingTime={recipe.cookingTime}
